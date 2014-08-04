@@ -26,3 +26,4 @@ node_modules
 
 # OS Specific
 .DS_Store
+secret.json

@@ -1,6 +1,23 @@
 //Grunt.js
 module.exports = function( grunt ) {
 	grunt.initConfig({
+    secret: grunt.file.readJSON('secret.json'),
+    sftp: {
+      test: {
+        files: {
+          "./": "dist/**"
+        },
+        options: {
+          path: '/var/www/html',
+          host: '<%= secret.production.host %>',
+          username: '<%= secret.production.username %>',
+          password: '<%= secret.production.password %>',
+          showProgress: true,
+          createDirectories: true,
+          srcBasePath: "dist/"
+        }
+      }
+    },
     assemble: {
       options: {
         flatten: true,
@@ -14,22 +31,20 @@ module.exports = function( grunt ) {
         dest: 'dist/',
       }
     },
-		uglify: {
-			my_target: {
-				files: {
-					'dist/js/output.min.js': ['src/js/*.js']
-				}
-			}
-		},
-		stripmq: {
-        //Viewport options
+    uglify: {
+     my_target: {
+      files: {
+       'dist/js/output.min.js': ['src/js/*.js']
+     }
+   }
+ },
+ stripmq: {
         options: {
         	width: 1000,
         	type: 'screen'
         },
         all: {
         	files: {
-                //follows the pattern 'destination': ['source']
                 'dist/css/defaultie.css': ['dist/css/default.css']
               }
             }
@@ -56,10 +71,12 @@ module.exports = function( grunt ) {
             }
           }
         });
-  grunt.loadNpmTasks( 'assemble' );
-	grunt.loadNpmTasks( 'grunt-stripmq' );
-	grunt.loadNpmTasks( 'grunt-contrib-sass' );
-	grunt.loadNpmTasks( 'grunt-contrib-watch' );
-	grunt.loadNpmTasks( 'grunt-contrib-uglify' );
-	grunt.registerTask( 'default', ['sass'] );
+
+grunt.loadNpmTasks('grunt-ssh');
+grunt.loadNpmTasks( 'assemble' );
+grunt.loadNpmTasks( 'grunt-stripmq' );
+grunt.loadNpmTasks( 'grunt-contrib-sass' );
+grunt.loadNpmTasks( 'grunt-contrib-watch' );
+grunt.loadNpmTasks( 'grunt-contrib-uglify' );
+grunt.registerTask( 'default', ['sass'] );
 };
