@@ -7,12 +7,14 @@
 		<div class="row">
 			<a href="index.html"><div class="col-xs-4 col-sm-5 header_logo"></div></a>
 			<div class="col-xs-8 col-sm-6 header-cta pull-right">
-				<a class="phoneNumber phoneNumber-header" href="tel:+13174562564">
-					<i class="fa fa-phone"></i> 0800 030 4049
+				<a class="phoneNumber phoneNumber-header" href="tel:+{{ site.phoneLink }}">
+					<i class="fa fa-phone"></i> {{ site.phone }}
 				</a>
+				<a href="{{ site.secure }}">
 				<button class="btn quoteButton quoteButton-largeThin hidden-xs">
 					Fast Online Quote <i class="fa fa-arrow-right"></i>
 				</button>
+				</a>
 			</div>
 			<nav class="linkbar col-xs-12" role="navigation">
 				<div class="linkbar_header">

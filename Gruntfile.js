@@ -24,7 +24,7 @@ module.exports = function( grunt ) {
         assets: 'assets',
         plugins: ['permalinks'],
         partials: ['src/tpl/**/*.hbs'],
-        data: ['data/*.{json,yml}']
+        data: ['src/data/*.{json,yml}']
       },
       tpls: {
         src: ['src/tpl/*.hbs'],
