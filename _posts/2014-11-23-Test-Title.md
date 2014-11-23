@@ -1,5 +1,8 @@
 ---
+layout: post
+category: blog
 published: true
+title: Test title
 ---
 
 ## A New Post
