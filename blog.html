@@ -7,7 +7,7 @@ title: Blog - AutoGlaze Manchester
 	{% for post in site.posts %}
   <li class="list-group-item">
     <span class="badge">{{ post.date }}</span>
-    <a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a>
+    <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
   </li>
   {% endfor %}
 </ul>
