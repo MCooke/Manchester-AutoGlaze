@@ -2,7 +2,7 @@ baseurl: /Manchester-AutoGlaze
 exclude: ['node_modules', 'dist', 'src']
 permalink: ":title.html"
 prose:
-  rooturl: '_posts'
+  rooturl: 
   metadata:
     _posts:
       - name: "category"
